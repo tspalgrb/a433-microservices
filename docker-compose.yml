@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  item-app:
+    image: ghcr.io/tspalgrb/item-app:v1  # Menggunakan image yang sudah dibuild & diupload ke GitHub Packages
+    ports:
+      - "80:8080"  # Port mapping dari host ke container
+    depends_on:
+      - item-db  # Menjalankan item-app ketika item-db sudah tersedia
+    restart: always  # Menerapkan restart policy ketika container selalu terhenti
+
+  item-db:
+    image: mongo:3  # Menggunakan image MongoDB versi 3
+    volumes:
+      - app-db:/data/db  # Menggunakan volume untuk persistensi data pada container item-db
+    restart: always  # Menerapkan restart policy ketika container selalu terhenti
+
+volumes:
+  app-db:  # Mendefinisikan volume bernama app-db
