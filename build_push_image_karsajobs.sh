@@ -12,5 +12,5 @@ docker tag karsajobs:latest ghcr.io/$USERNAME/karsajobs:latest
 # Login ke GitHub Packages
 echo $PAT_GITHUB_PACKAGES | docker login ghcr.io -u $USERNAME --password-stdin
 
-# Mengupload image ke GitHub Packages
+# Mengupload/push image ke GitHub Packages
 docker push ghcr.io/$USERNAME/karsajobs:latest
