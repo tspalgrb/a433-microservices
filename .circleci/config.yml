@@ -38,7 +38,7 @@ jobs:
 
 workflows:
   version: 2
-  build-test-deploy:
+  lint-test-and-build-karsajobs:
     jobs:
       - lint-dockerfile
       - test-app:
